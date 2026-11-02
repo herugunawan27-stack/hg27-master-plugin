@@ -1,99 +1,128 @@
 
-* {
-  box-sizing: border-box;
+:root {
+  --bg: #0c110f;
+  --panel: #17251c;
+  --panel2: #1d3024;
+  --gold: #e5c36d;
+  --text: #f5f5f0;
+  --muted: #aebbb1;
+  --line: #465a49;
 }
-
+* { box-sizing: border-box; }
 body {
   margin: 0;
-  background: #0c110f;
-  color: #f5f7f5;
+  background: var(--bg);
+  color: var(--text);
   font-family: Arial, sans-serif;
 }
-
 header {
-  padding: 20px;
-  background: #17251c;
-  border-bottom: 1px solid #b99a4e;
-}
-
-.brand {
-  color: #e5c36d;
-  font-size: 22px;
-  font-weight: bold;
-}
-
-main {
-  padding: 20px;
-  max-width: 850px;
-  margin: auto;
-}
-
-.hero {
-  padding: 28px 15px;
-  background: linear-gradient(135deg, #244632, #101713);
-  border-radius: 18px;
-}
-
-h1, h2 {
-  color: #e5c36d;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  padding: 18px 5%;
+  background: var(--panel);
+  border-bottom: 1px solid var(--line);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
   gap: 12px;
 }
-
-.module {
-  background: #19251d;
-  border: 1px solid #465a49;
-  border-radius: 14px;
-  padding: 17px;
-  color: white;
-  text-align: left;
-  min-height: 105px;
+header b { color: var(--gold); font-size: 20px; }
+button, input, select, textarea { font: inherit; }
+button {
   cursor: pointer;
-}
-
-.module.active {
-  border: 2px solid #e5c36d;
-}
-
-.panel {
-  margin-top: 25px;
-  padding: 18px;
-  background: #17221a;
-  border-radius: 16px;
-}
-
-input, textarea, select {
-  width: 100%;
-  padding: 13px;
-  margin: 8px 0 15px;
-  background: #0c110f;
-  border: 1px solid #536153;
-  border-radius: 9px;
-  color: white;
-}
-
-button.primary {
-  width: 100%;
-  padding: 15px;
-  background: #d5b45e;
-  border: 0;
   border-radius: 10px;
-  font-weight: bold;
-  color: #101713;
+  padding: 12px 16px;
+  border: 1px solid var(--line);
+  background: var(--panel2);
+  color: var(--text);
 }
-
+button:hover { border-color: var(--gold); }
+main {
+  padding: 24px 16px;
+  max-width: 900px;
+  margin: auto;
+  min-height: 80vh;
+}
+h1 { color: var(--gold); font-size: 30px; line-height: 1.2; }
+h2 { color: var(--gold); }
+em { color: var(--text); }
+.eyebrow {
+  color: var(--gold);
+  letter-spacing: 3px;
+  font-size: 12px;
+  font-weight: bold;
+}
+.muted { color: var(--muted); line-height: 1.6; }
+.grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0,1fr));
+  gap: 12px;
+  margin: 24px 0;
+}
+.module {
+  background: var(--panel);
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  padding: 18px;
+  text-align: left;
+  min-height: 110px;
+}
+.module strong { display: block; margin-bottom: 12px; }
+.module span { color: var(--gold); font-size: 12px; }
+aside {
+  background: var(--panel);
+  border-left: 3px solid var(--gold);
+  padding: 16px;
+  border-radius: 8px;
+  color: var(--muted);
+  line-height: 1.6;
+}
+.modes { display: flex; gap: 10px; margin: 22px 0; }
+.modes button { flex: 1; }
+.active, .primary {
+  background: var(--gold);
+  color: #17150d;
+  border-color: var(--gold);
+  font-weight: bold;
+}
+label {
+  display: block;
+  margin: 18px 0;
+  color: var(--gold);
+  font-weight: bold;
+}
+input, select, textarea {
+  display: block;
+  width: 100%;
+  margin-top: 9px;
+  padding: 14px;
+  background: #0b100e;
+  color: white;
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+.fields { margin: 0; }
+.actions { display: flex; gap: 10px; }
+.actions button { flex: 1; }
+.secondary { background: transparent; }
+#result {
+  margin-top: 28px;
+  padding: 18px;
+  background: var(--panel);
+  border-radius: 14px;
+}
+#result h2 { display: flex; justify-content: space-between; }
+pre {
+  white-space: pre-wrap;
+  overflow-wrap: anywhere;
+  line-height: 1.6;
+  color: var(--text);
+}
 footer {
   text-align: center;
-  padding: 30px;
-  color: #b99a4e;
+  color: var(--muted);
+  padding: 24px;
+  font-size: 12px;
 }
-
-@media(max-width:400px) {
-  .grid {
-    grid-template-columns: 1fr;
-  }
+@media(max-width: 520px) {
+  .grid { grid-template-columns: 1fr; }
+  h1 { font-size: 27px; }
 }
