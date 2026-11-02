@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#101713">
+<title>HG27 MASTER PLUGIN</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;background:#0c110f;color:white;font-family:Arial,sans-serif}
+header{padding:20px;background:#17251c;border-bottom:1px solid #b99a4e}
+.brand{color:#e5c36d;font-size:22px;font-weight:bold}
+header p{font-size:11px;letter-spacing:3px}
+main{padding:20px;max-width:850px;margin:auto}
+.hero{padding:28px 15px;background:linear-gradient(135deg,#244632,#101713);border-radius:18px}
+h1{font-size:32px;color:#e5c36d}
+.hero p{color:#d2ddd5}
+h2{color:#e5c36d}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.module{background:#19251d;border:1px solid #465a49;border-radius:14px;padding:17px;color:white;text-align:left;min-height:105px;cursor:pointer}
+.module b{display:block;margin-bottom:8px}
+.module span{font-size:11px;color:#b9c8bc}
+.module.active{border:2px solid #e5c36d}
+.panel{margin-top:25px;padding:18px;background:#17221a;border-radius:16px}
+input,textarea,select{width:100%;padding:13px;margin:8px 0 15px;background:#0c110f;border:1px solid #536153;border-radius:9px;color:white}
+button.primary{width:100%;padding:15px;background:#d5b45e;border:0;border-radius:10px;font-weight:bold;color:#101713}
+#result{min-height:150px}
+footer{text-align:center;padding:30px;color:#b99a4e;font-size:12px}
+@media(max-width:400px){.grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+<div class="brand">👑 HG27 MASTER PLUGIN</div>
+<p>ONE CREATIVE ECOSYSTEM</p>
+</header>
+<main>
+<section class="hero">
+<h1>WELCOME TO HG27</h1>
+<p>Seven Generators. One Creative Home.</p>
+<p>Pusat kreativitas digital HG27 Studio.</p>
+</section>
+<h2>7 GENERATOR STUDIO</h2>
+<div class="grid" id="modules"></div>
+<section class="panel">
+<h2 id="selected">Creative Studio</h2>
+<label>Topik / Ide Konten</label>
+<input id="topic" placeholder="Masukkan topik...">
+<label>Gaya Visual</label>
+<select id="style">
+<option>Modern Premium</option>
+<option>3D Cartoon</option>
+<option>Photorealistic</option>
+<option>2D Illustration</option>
+<option>Minimalist</option>
+</select>
+<label>Rasio</label>
+<select id="ratio">
+<option>4:5</option><option>9:16</option>
+<option>16:9</option><option>1:1</option>
+</select>
+<label>Detail Tambahan</label>
+<textarea id="details" rows="3" placeholder="Detail tambahan..."></textarea>
+<button class="primary" onclick="generate()">BUAT PROMPT</button>
+<h2>HASIL GENERATOR</h2>
+<textarea id="result" rows="8" readonly></textarea>
+<button class="primary" onclick="copyResult()">SALIN PROMPT</button>
+</section>
+</main>
+<footer>HG27 STUDIO CREATIVE AI © 2026</footer>
+<script>
+const names=[
+"HG27 AI Creative Studio",
+"HG27 AI Infographic Studio",
+"HG27 Daily Content Creator",
+"HG27 Character Sheet Generator",
+"HG27 Cinematic Story Generator",
+"HG27 Animal Fairy Tale Generator",
+"HG27 Poster & Advertising Studio"
+];
+let current=0;
+const grid=document.getElementById("modules");
+names.forEach((name,i)=>{
+let b=document.createElement("button");
+b.className="module"+(i===0?" active":"");
+b.innerHTML="<b>"+(i+1)+". "+name+"</b><span>BUKA GENERATOR →</span>";
+b.onclick=()=>{
+current=i;
+document.querySelectorAll(".module").forEach(x=>x.classList.remove("active"));
+b.classList.add("active");
+document.getElementById("selected").textContent=name;
+};
+grid.appendChild(b);
+});
+function generate(){
+let topic=document.getElementById("topic").value;
+if(!topic){alert("Masukkan topik terlebih dahulu");return;}
+document.getElementById("result").value=
+"HG27 MASTER PLUGIN\n"+
+"MODUL: "+names[current]+"\n"+
+"TOPIK: "+topic+"\n"+
+"GAYA: "+document.getElementById("style").value+"\n"+
+"RASIO: "+document.getElementById("ratio").value+"\n"+
+"DETAIL: "+document.getElementById("details").value+
+"\n\nBuat konsep kreatif profesional, terstruktur, menarik dan siap diproduksi. Gunakan Bahasa Indonesia untuk konten.";
+}
+function copyResult(){
+let r=document.getElementById("result");
+if(!r.value){alert("Buat prompt terlebih dahulu");return;}
+r.select();document.execCommand("copy");
+alert("Prompt berhasil disalin!");
+}
+</script>
+</body>
+</html>
