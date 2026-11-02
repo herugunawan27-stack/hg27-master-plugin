@@ -1,0 +1,11 @@
+
+services:
+  - type: web
+    name: hg27-master-plugin
+    runtime: static
+    buildCommand: ""
+    staticPublishPath: .
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
