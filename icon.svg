@@ -1,0 +1,12 @@
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" rx="100" fill="#101713"/>
+  <path d="M110 190l50-90 96 65 96-65 50 90-20 150H130z" fill="#d7b45e"/>
+  <path d="M145 220h222v38H145z" fill="#101713"/>
+  <text x="256" y="330" text-anchor="middle"
+    font-family="Arial" font-weight="bold"
+    font-size="104" fill="#fff">HG27</text>
+  <text x="256" y="375" text-anchor="middle"
+    font-family="Arial" font-size="28"
+    letter-spacing="8" fill="#d7b45e">STUDIO</text>
+</svg>
