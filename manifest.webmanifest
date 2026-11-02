@@ -1,19 +1,22 @@
 
 {
+  "id": "./",
   "name": "HG27 MASTER PLUGIN",
   "short_name": "HG27",
-  "description": "One Creative Ecosystem - Seven Generators",
+  "description": "Seven Generators. One Creative Home.",
+  "lang": "id",
   "start_url": "./",
+  "scope": "./",
   "display": "standalone",
+  "orientation": "portrait",
   "background_color": "#0c110f",
   "theme_color": "#101713",
-  "orientation": "portrait",
   "icons": [
     {
-      "src": "icon.svg",
+      "src": "./icon.svg",
       "sizes": "any",
       "type": "image/svg+xml",
-      "purpose": "any maskable"
+      "purpose": "any"
     }
   ]
 }
