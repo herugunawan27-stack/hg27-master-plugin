@@ -1,5 +1,5 @@
 
-const CACHE_NAME = "hg27-master-v1";
+const CACHE_NAME = "hg27-master-v2";
 
 const FILES = [
   "./",
@@ -12,9 +12,7 @@ const FILES = [
 
 self.addEventListener("install", event => {
   event.waitUntil(
-    caches.open(CACHE_NAME).then(cache => {
-      return cache.addAll(FILES);
-    })
+    caches.open(CACHE_NAME).then(cache => cache.addAll(FILES))
   );
   self.skipWaiting();
 });
